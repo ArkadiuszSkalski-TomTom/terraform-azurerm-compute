@@ -68,6 +68,7 @@ resource "azurerm_virtual_machine" "vm-linux" {
     create_option     = "FromImage"
     caching           = "ReadWrite"
     managed_disk_type = var.storage_account_type
+    disk_size_gb      = var.vm_os_disk_size_gb
   }
 
   dynamic storage_data_disk {
@@ -178,7 +179,8 @@ resource "azurerm_virtual_machine" "vm-windows" {
     create_option     = "FromImage"
     caching           = "ReadWrite"
     managed_disk_type = var.storage_account_type
-  }
+    disk_size_gb      = var.vm_os_disk_size_gb
+}
 
   dynamic storage_data_disk {
     for_each = range(var.nb_data_disk)

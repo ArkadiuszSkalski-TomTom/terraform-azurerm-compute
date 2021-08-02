@@ -127,6 +127,12 @@ variable "vm_os_version" {
   default     = "latest"
 }
 
+variable "vm_os_disk_size_gb" {
+  description = "OS disk size."
+  type        = number
+  default     = 30
+}
+
 variable "tags" {
   type        = map(string)
   description = "A map of the tags to use on the resources that are deployed with this module."
